@@ -15,7 +15,7 @@ const UserList = () => {
         e.preventDefault();
 
         try {
-            await axios.post('http://localhost:5000/users', {
+            await axios.post('https://ps26819-dcfm.onrender.com/users', {
                 name: name,
                 email: email,
                 gender: gender
@@ -31,7 +31,7 @@ const UserList = () => {
     const DeleteUser = async (e) => {
 
         try {
-            await axios.delete(`http://localhost:5000/users/${e}`).then((response) => {
+            await axios.delete(`https://ps26819-dcfm.onrender.com/users/${e}`).then((response) => {
                 console.log(response);
             });
         } catch (err) {
@@ -49,7 +49,7 @@ const UserList = () => {
         // seta(Math.random)
 
         try {
-            await axios.get(`http://localhost:5000/users/${e}`).then((response) => {
+            await axios.get(`https://ps26819-dcfm.onrender.com/users/${e}`).then((response) => {
                 console.log(response.data);
                 setName(response.data.name)
                 setEmail(response.data.email)
@@ -63,7 +63,7 @@ const UserList = () => {
     const UpdateUser_save = async () => {
         var iid = idd
         try {
-            await axios.patch(`http://localhost:5000/users/${iid}`, {
+            await axios.patch(`https://ps26819-dcfm.onrender.com/users/${iid}`, {
                 name: name,
                 email: email,
                 gender: gender
@@ -83,10 +83,10 @@ const UserList = () => {
 
     }, [a]);
     const getUser = async () => {
-        const respone = await axios.get('http://localhost:5000/users')
+        const respone = await axios.get('https://ps26819-dcfm.onrender.com/users')
         setUser(respone.data);
         console.log(respone.data.length)
-        // axios.get('http://localhost:5000/users')
+        // axios.get('https://ps26819-dcfm.onrender.com/users')
         // this will re render the view with new data
 
     }

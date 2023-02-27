@@ -15,7 +15,7 @@ const UserList = () => {
         e.preventDefault();
 
         try {
-            await axios.post('http://localhost:5000/users', {
+            await axios.post('ps26819-hf7b.onrender.com/users', {
                 name: name,
                 email: email,
                 gender: gender
@@ -31,7 +31,7 @@ const UserList = () => {
     const DeleteUser = async (e) => {
 
         try {
-            await axios.delete(`http://localhost:5000/users/${e}`).then((response) => {
+            await axios.delete(`ps26819-hf7b.onrender.com/users/${e}`).then((response) => {
                 console.log(response);
             });
         } catch (err) {
@@ -41,15 +41,15 @@ const UserList = () => {
         navigate("/")
         console.log(e.target)
     }
-    const UpdateUser = async  (e) => {
+    const UpdateUser = async (e) => {
         setid(e)
-        console.log("update : "+e)
+        console.log("update : " + e)
         document.getElementById("a").style.display = "none";
         document.getElementById("b").style.display = "block";
         // seta(Math.random)
 
         try {
-            await axios.get(`http://localhost:5000/users/${e}`).then((response) => {
+            await axios.get(`ps26819-hf7b.onrender.com/users/${e}`).then((response) => {
                 console.log(response.data);
                 setName(response.data.name)
                 setEmail(response.data.email)
@@ -58,12 +58,12 @@ const UserList = () => {
         } catch (err) {
 
         };
-   
+
     }
     const UpdateUser_save = async () => {
         var iid = idd
         try {
-            await axios.patch(`http://localhost:5000/users/${iid}`, {
+            await axios.patch(`ps26819-hf7b.onrender.com/users/${iid}`, {
                 name: name,
                 email: email,
                 gender: gender
@@ -73,7 +73,7 @@ const UserList = () => {
         } catch (err) {
 
         };
-   
+
     }
     useEffect(() => {
         getUser();
@@ -83,10 +83,10 @@ const UserList = () => {
 
     }, [a]);
     const getUser = async () => {
-        const respone = await axios.get('http://localhost:5000/users')
+        const respone = await axios.get('ps26819-hf7b.onrender.com/users')
         setUser(respone.data);
         console.log(respone.data.length)
-        // axios.get('http://localhost:5000/users')
+        // axios.get('ps26819-hf7b.onrender.com/users')
         // this will re render the view with new data
 
     }
@@ -119,12 +119,12 @@ const UserList = () => {
                                                     console.log(index);
                                                     DeleteUser(index);
                                                 }}>Delete</button>
-                                            <button className="button is-small is-danger" 
-                                            onClick={(e) => {
-                                                var index = user.id;
-                                                console.log(index);
-                                                UpdateUser(index);
-                                            }}
+                                            <button className="button is-small is-danger"
+                                                onClick={(e) => {
+                                                    var index = user.id;
+                                                    console.log(index);
+                                                    UpdateUser(index);
+                                                }}
                                             >Update</button>
                                         </td>
                                     </tr>

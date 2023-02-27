@@ -15,7 +15,7 @@ const UserList = () => {
         e.preventDefault();
 
         try {
-            await axios.post('ps26819-hf7b.onrender.com/users', {
+            await axios.post('https://ps26819-hf7b.onrender.com/users', {
                 name: name,
                 email: email,
                 gender: gender
@@ -31,7 +31,7 @@ const UserList = () => {
     const DeleteUser = async (e) => {
 
         try {
-            await axios.delete(`ps26819-hf7b.onrender.com/users/${e}`).then((response) => {
+            await axios.delete(`https://ps26819-hf7b.onrender.com/users/${e}`).then((response) => {
                 console.log(response);
             });
         } catch (err) {
@@ -49,7 +49,7 @@ const UserList = () => {
         // seta(Math.random)
 
         try {
-            await axios.get(`ps26819-hf7b.onrender.com/users/${e}`).then((response) => {
+            await axios.get(`https://ps26819-hf7b.onrender.com/users/${e}`).then((response) => {
                 console.log(response.data);
                 setName(response.data.name)
                 setEmail(response.data.email)
@@ -63,7 +63,7 @@ const UserList = () => {
     const UpdateUser_save = async () => {
         var iid = idd
         try {
-            await axios.patch(`ps26819-hf7b.onrender.com/users/${iid}`, {
+            await axios.patch(`https://ps26819-hf7b.onrender.com/users/${iid}`, {
                 name: name,
                 email: email,
                 gender: gender
@@ -83,10 +83,10 @@ const UserList = () => {
 
     }, [a]);
     const getUser = async () => {
-        const respone = await axios.get('ps26819-hf7b.onrender.com/users')
+        const respone = await axios.get('https://ps26819-hf7b.onrender.com/users')
         setUser(respone.data);
         console.log(respone.data.length)
-        // axios.get('ps26819-hf7b.onrender.com/users')
+        // axios.get('https://ps26819-hf7b.onrender.com/users')
         // this will re render the view with new data
 
     }
